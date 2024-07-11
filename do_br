@@ -1,0 +1,13 @@
+#!/bin/bash
+for x in `find /usr/share/nginx/html/js -type f -iname '*.js'`
+do
+    	/usr/bin/brotli  --input ${x} --output ${x}.br --repeat 1
+	chmod 644 ${x}.br
+done
+
+for x in `find /usr/share/nginx/html/css -type f -iname '*.css'`
+do
+
+	/usr/bin/brotli --input ${x} --output ${x}.br --repeat 1
+	chmod 644 ${x}.br
+done
